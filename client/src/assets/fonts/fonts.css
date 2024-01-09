@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'SVN-Mabry Pro';
+    src: url('SVN-MabryPro-Light.woff2') format('woff2'), url('SVN-MabryPro-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SVN-Grand Slang';
+    src: url('SVN-GrandSlang-Regular.woff2') format('woff2'), url('SVN-GrandSlang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SVN-Mabry Pro';
+    src: url('SVN-MabryPro-Regular.woff2') format('woff2'), url('SVN-MabryPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'lg';
+    src: url('lg.woff2') format('woff2'), url('lg.ttf') format('ttf'), url('lg.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}

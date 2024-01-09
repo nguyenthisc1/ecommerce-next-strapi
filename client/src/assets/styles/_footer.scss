@@ -1,0 +1,16 @@
+.footer {
+    @apply bg-white;
+    &-form {
+        .container {
+            @apply grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-32;
+        }
+    }
+
+    @media (min-width: theme('screens.lg')) {
+        @apply bg-grey;
+
+        &-form {
+            @apply fixed bottom-0 -z-10 w-full bg-white opacity-0;
+        }
+    }
+}

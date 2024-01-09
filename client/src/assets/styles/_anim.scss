@@ -1,0 +1,146 @@
+[data-scroll-fade-in] {
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	@apply translate-y-16 opacity-0 transition-[opacity,transform] duration-1000;
+	&.fade-in {
+		@apply translate-y-0 opacity-100;
+	}
+}
+
+[data-scroll-background-color="white"] {
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	@apply bg-primary text-white transition-colors duration-1000;
+	&.active-scroll {
+		@apply bg-white text-primary;
+	}
+}
+
+[data-scroll-background-color="grey"] {
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	@apply bg-white transition-colors duration-1000;
+	&.active-scroll {
+		@apply bg-grey;
+	}
+}
+
+[data-split-text] {
+	br {
+		@apply hidden lg:block;
+	}
+	span {
+		@apply inline-block overflow-hidden align-top;
+	}
+}
+
+.anim-hover-clip-image {
+	@apply overflow-hidden;
+	clip-path: inset(0% 0% 0% 0%);
+	@apply transition-[clip-path] duration-1000 ease-[cubic-bezier(.4,0,.2,1)];
+	&:hover {
+		clip-path: inset(3% 3% 3% 3%);
+		img {
+			@apply scale-105;
+		}
+	}
+	img {
+		@apply transition-transform duration-1000 ease-[cubic-bezier(.4,0,.2,1)];
+	}
+}
+
+.anim-hover-scale-image {
+	@apply overflow-hidden;
+	&:hover {
+		img {
+			@apply scale-105;
+		}
+	}
+	img {
+		@apply transition-transform duration-1000 ease-[cubic-bezier(.4,0,.2,1)];
+	}
+}
+
+.anim-hover-line {
+	@apply relative hover:before:scale-x-100;
+	&::before {
+		content: "";
+		@apply absolute -bottom-1 left-0 h-[1px] w-full origin-left scale-x-0 bg-white transition-transform duration-500;
+	}
+	&.active {
+		@apply before:scale-x-100;
+	}
+}
+
+.anim-spin-out {
+	animation: spin-out 10s linear infinite;
+}
+
+.anim-spin-in {
+	animation: spin-in 10s linear infinite;
+}
+
+.tt-scrolling-text {
+	@apply pointer-events-none relative flex;
+	&__inner {
+		@apply whitespace-nowrap text-[12.5vw] pl-[2vw] md:text-[7.5vw] leading-normal;
+
+		&:after {
+			content: attr(data-text);
+		}
+	}
+	&.active-scroll {
+		.tt-scrolling-text__inner {
+			animation-name: tt-scrolling-text-keyframe;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			animation-play-state: running;
+		}
+	}
+}
+
+.tt-sdc-rotation {
+	animation: sdc-rotation 8s infinite linear;
+}
+
+@keyframes tt-scrolling-text-keyframe {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes sdc-rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+@keyframes spin-in {
+	0% {
+		transform: rotate(85deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+@keyframes spin-out {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+@keyframes marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}

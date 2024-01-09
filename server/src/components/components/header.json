@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_components_headers",
+  "info": {
+    "displayName": "header",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "navItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.nav-item"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.header {
+    @apply pointer-events-none fixed top-0 z-[var(--z-header)] w-full py-8 mix-blend-difference transition-transform duration-500;
+    &.active-scroll {
+        @apply -translate-y-full;
+    }
+
+    .logo {
+        @apply transition-[opacity,visibility] duration-500;
+    }
+    .wrapper {
+        @apply flex items-center justify-between px-6 mix-blend-difference xl:px-8;
+    }
+
+    @media (max-width: theme('screens.md')) {
+        &.active {
+            .logo {
+                @apply invisible opacity-0;
+            }
+        }
+    }
+}

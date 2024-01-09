@@ -1,0 +1,291 @@
+.container {
+    @apply px-6 lg:max-w-[1180px] xl:px-0;
+}
+
+.tag-alpha {
+    @apply b2 bg-white py-6 text-center;
+}
+
+.logo-symbol {
+    @apply pointer-events-none absolute inset-0 z-10;
+    &__image {
+        @apply mx-auto w-full h-full object-cover xl:w-10/12;
+    }
+}
+
+.submit-button {
+    @apply block w-full min-w-[180px] cursor-pointer rounded-full border border-primary px-8 py-3 text-center transition-colors duration-500 hover:bg-black hover:text-white md:inline-block md:w-auto;
+}
+
+.main-button {
+    @apply block w-full min-w-[180px] cursor-pointer rounded-full border border-primary px-8 py-3 text-center transition-colors duration-500 hover:bg-black hover:text-white md:inline-block md:w-auto;
+    &.--white {
+        @apply border-secondary text-secondary hover:border-primary hover:bg-secondary hover:text-primary;
+    }
+}
+
+.magic-slider-button {
+    @apply static inset-auto m-0 block h-12 w-12;
+    &::after {
+        @apply hidden;
+    }
+}
+
+// Begin hamburger
+.hamburger {
+    --cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+    @apply pointer-events-auto  right-8 top-8  z-20 cursor-pointer  mix-blend-difference;
+    &.active {
+        .hamburger-wrapper__line {
+            span {
+                @apply w-full bg-white;
+                &:first-of-type {
+                    top: 50%;
+                    transform: translateY(-50%) rotate(45deg);
+                    transition: top 0.1s ease-out, width 0.5s, background 0.5s, transform 0.5s 0.2s var(--cubic);
+                }
+
+                &:last-of-type {
+                    bottom: 50%;
+                    transform: translateY(50%) rotate(-45deg);
+                    transition: bottom 0.1s ease-out, width 0.5s, background 0.5s, transform 0.5s 0.2s var(--cubic);
+                }
+            }
+        }
+    }
+
+    &-wrapper {
+        @apply p-4 pr-0 md:pr-4;
+
+        &:hover {
+            span {
+                &:last-of-type {
+                    @apply w-full;
+                }
+            }
+        }
+
+        &__line {
+            @apply relative flex h-3 w-8 flex-col justify-between;
+            span {
+                @apply absolute block h-[1.5px] bg-white duration-500;
+                &:first-of-type {
+                    @apply top-0 w-full;
+                    transition: top 0.1s 0.2s ease-in, transform 0.5s, width 0.5s, background 0.5s;
+                }
+                &:last-of-type {
+                    @apply bottom-0 w-9/12;
+                    transition: bottom 0.1s 0.2s ease-in, transform 0.5s, width 0.5s, background 0.5s;
+                }
+            }
+        }
+    }
+}
+// End hamburger
+
+// Begin logo
+.logo {
+    @apply pointer-events-auto left-8 top-8 z-20 h-20 w-20 cursor-pointer mix-blend-difference;
+}
+// End logo
+
+.custom-field {
+    @apply resize-none border-b border-grey pb-3 outline-none transition-colors duration-500 focus:border-primary;
+}
+
+.circle-text {
+    @apply hidden lg:block fixed -bottom-[30px] left-6 z-20;
+    &:hover {
+        .circle-text__link {
+            @apply pointer-events-auto opacity-100;
+        }
+
+        .circle-text__inner {
+            @apply opacity-0;
+        }
+    }
+    &__inner {
+        @apply pointer-events-none relative transition-opacity duration-500;
+    }
+    &__icon {
+        @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+    }
+
+    &__link {
+        @apply pointer-events-none absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 space-y-2 opacity-0 transition-opacity duration-500;
+    }
+
+    &__rotate {
+        --size-circle: 140px;
+        @apply h-[var(--size-circle)] w-[var(--size-circle)];
+        @media (min-width: theme('screens.lg')) {
+            --size-circle: 180px;
+        }
+    }
+}
+
+.value-brand__text {
+    span {
+        @apply inline-block opacity-0;
+    }
+    .fade-in-span {
+        @apply text-white;
+    }
+}
+
+/* ------------------------------------------------------------- *
+ * magic cursor
+/* ------------------------------------------------------------- */
+
+#magic-cursor {
+    @apply pointer-events-none absolute z-[var(--z-cursor)] hidden h-[10px] w-[10px] cursor-none opacity-0 mix-blend-difference;
+}
+
+#ball {
+    @apply pointer-events-none fixed flex cursor-none items-center justify-center rounded-full border border-solid border-white text-white;
+}
+
+.magnetic-wrap {
+    @apply relative flex cursor-none items-center justify-center;
+}
+
+.anim-nav-bg {
+    @apply pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat;
+}
+
+.cursor-pn-image {
+    @apply hidden h-full w-full;
+    img {
+        @apply h-full w-full object-cover;
+    }
+}
+
+.magic-cursor-slider {
+    @apply cursor-none;
+}
+
+.not-hide-cursor {
+    // @apply cursor-none;
+}
+
+.cursor-page-nav {
+    @apply relative z-20 cursor-none mix-blend-difference;
+}
+
+.cursor-page-link {
+    @apply relative z-20 cursor-none;
+}
+
+.tt-pn-scroll {
+    @apply w-full max-w-[800px] text-center;
+}
+
+.tt-pn-title {
+    @apply relative left-1/2 block overflow-hidden whitespace-nowrap leading-[1.6] opacity-40;
+    font-size: clamp(42px, 6vw, 110px);
+    transform: translate3d(-50%, 0, 0);
+    transition: transform 0.6s cubic-bezier(0.51, 0.57, 0.17, 1);
+    text-overflow: ellipsis;
+}
+
+.tt-pn-hover-title {
+    @apply absolute left-1/2 whitespace-nowrap leading-[1.6];
+    font-size: clamp(36px, 6vw, 110px);
+    transform: translate3d(-50%, 100%, 0);
+    transition: transform 0.6s cubic-bezier(0.51, 0.57, 0.17, 1);
+    span {
+        @apply inline-flex items-center pr-[5vw];
+        @media (min-width: theme('screens.lg')) {
+            animation: marquee 7s linear infinite;
+            animation-play-state: paused;
+        }
+        // &::after {
+        //     @apply absolute right-[1.9vw] top-[56%] block h-[0.8vw] w-[0.8vw] rounded-full bg-primary content-[''];
+        //     transform: translate3d(0, -50%, 0);
+        // }
+    }
+}
+
+.tt-pn-link {
+    @apply relative flex flex-col items-start overflow-hidden;
+    &:hover {
+        .tt-pn-hover-title {
+            transform: translate3d(-50%, 0, 0);
+            transition-delay: 0.1s;
+            span {
+                @media (min-width: theme('screens.lg')) {
+                    animation-play-state: running;
+                }
+            }
+        }
+
+        .tt-pn-title {
+            transform: translate3d(-50%, -100%, 0);
+            transition-delay: 0.1s;
+        }
+    }
+}
+
+#magic-cursor.pn-hover-on {
+    z-index: 11;
+}
+
+#magic-cursor.pn-hover-on {
+    #ball {
+        z-index: -1;
+        @apply overflow-hidden border-none;
+        .cursor-pn-image {
+            @apply block;
+        }
+    }
+}
+
+/* Ball view
+============= */
+#ball .ball-view {
+    @apply invisible absolute h-full w-full scale-0 text-center text-sm opacity-0;
+}
+
+.cursor-pn-discover {
+    @apply absolute top-1/2 flex h-8 -translate-y-1/2 cursor-pointer items-center overflow-hidden pl-5;
+    &.--left {
+        @apply right-full pr-5;
+    }
+    span {
+        @apply block translate-y-8 whitespace-nowrap text-sm uppercase;
+    }
+}
+
+.cursor-slider {
+    background: url(../images/ic_arrow_right.svg) center/contain no-repeat;
+    @apply absolute left-1/2 top-1/2 h-6 w-5 -translate-x-1/2 -translate-y-1/2 cursor-none transition-transform duration-500;
+
+    &.prev {
+        @apply -rotate-180;
+    }
+}
+/* ------------------------------------------------------------- *
+ * magic cursor
+/* ------------------------------------------------------------- */
+
+.tt-draggable,
+.tt-draggable * {
+    @apply touch-none;
+}
+
+.contact-form {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+      transition: background-color 5000s ease-in-out 0s;
+      -webkit-text-fill-color: var(--color-primary);
+
+  }
+}

@@ -1,0 +1,36 @@
+.loading {
+    @apply fixed inset-0 z-[var(--z-loading)] hidden overflow-hidden  text-white;
+    &-wrapper {
+        @apply absolute inset-0 origin-top bg-black;
+        &__inner {
+            @apply absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center bg-black;
+            > div:not(:first-of-type) {
+                @apply absolute translate-y-5 opacity-0;
+            }
+        }
+    }
+
+    .logo-symbol {
+        // @apply transition-all duration-1000;
+    }
+
+    &-text,
+    &-desc {
+        @apply whitespace-nowrap;
+    }
+
+    &-logo {
+        @apply mx-auto max-w-full;
+    }
+
+    &-icon {
+        @apply w-8 h-8 md:h-11 md:w-11 object-contain;
+    }
+
+    .logo-circle {
+        @apply absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center;
+        &__image {
+            @apply w-32 h-32 md:h-40 md:w-40 origin-center;
+        }
+    }
+}

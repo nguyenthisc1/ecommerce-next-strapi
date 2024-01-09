@@ -1,0 +1,83 @@
+.nav {
+    @apply h-screen-view pointer-events-none fixed inset-0 z-[var(--z-nav)] flex w-full justify-end text-white transition-colors duration-500;
+    &.active {
+        @apply pointer-events-auto bg-black/70;
+        .wrapper {
+            @apply translate-x-0;
+        }
+        .nav-menu {
+            li {
+                @apply translate-x-0 opacity-100;
+            }
+            @for $i from 1 through 10 {
+                li:nth-of-type(#{$i}) {
+                    transition-delay: 0.1s * $i;
+                }
+            }
+        }
+
+        .nav-social {
+            @apply translate-x-0 opacity-100;
+        }
+    }
+    &.active-scroll {
+        .wrapper {
+            @apply bg-white text-primary;
+        }
+        .nav-menu li a::before {
+            @apply bg-primary;
+        }
+        .nav-social {
+            &__item {
+                &:hover {
+                    @apply fill-primary;
+                    path {
+                        @apply stroke-white;
+                    }
+                    .item-border {
+                        @apply stroke-primary;
+                    }
+                }
+            }
+        }
+    }
+    .wrapper {
+        transition-timing-function: cubic-bezier(0.215,0.61,0.355,1);
+        @apply  long:overflow-y-scroll long:justify-start long:pb-10 pointer-events-auto relative flex h-full w-full translate-x-full flex-col items-center justify-center space-y-10 bg-black pt-10 text-center transition-[transform,background,color] duration-1000  md:block md:w-[400px] md:space-y-20 md:px-32 md:pt-40 md:text-right;
+
+    }
+    &-menu {
+        @apply space-y-2;
+        li {
+            transition-timing-function: cubic-bezier(0.215,0.61,0.355,1);
+            @apply translate-x-10 whitespace-nowrap text-[26px] leading-[48px] opacity-0 transition-[opacity,transform] duration-500 ;
+            a {
+                @apply relative pb-1 hover:before:scale-x-100;
+                &::before {
+                    content: '';
+                    @apply absolute bottom-0 h-[1px] w-full origin-left scale-x-0 bg-white transition-transform duration-500;
+                }
+            }
+        }
+    }
+
+    &-social {
+        transition-timing-function: cubic-bezier(0.215,0.61,0.355,1);
+        @apply flex translate-x-10 justify-end space-x-6 opacity-0 transition-[opacity,transform] duration-500 ;
+        &__item {
+            @apply h-8 w-8 fill-transparent transition-[fill] duration-500;
+            &:hover {
+                @apply fill-white;
+                path {
+                    @apply stroke-primary;
+                }
+                .item-border {
+                    @apply stroke-white;
+                }
+            }
+            path {
+                @apply transition-[stroke] duration-500;
+            }
+        }
+    }
+}
