@@ -9,23 +9,29 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.0.2",
     "@studio-freight/react-lenis": "^0.0.43",
+    "classnames": "^2.5.1",
+    "gsap": "^3.12.4",
     "next": "14.0.4",
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
-    "sass": "^1.69.7"
+    "react-water-wave": "^2.0.1"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.29",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
+    "jquery": "^3.7.1",
     "postcss": "^8",
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.11",
+    "scss": "^0.2.4",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
