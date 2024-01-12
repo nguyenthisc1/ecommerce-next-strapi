@@ -2,7 +2,7 @@
 
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import React, { useRef, useState } from 'react'
+import React, { ElementRef, useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import classNames from 'classnames'
 
@@ -16,7 +16,7 @@ if (typeof window !== 'undefined') {
 }
 
 export default function ScrollColorBG({ children, color, ...props }: Props) {
-    const container = useRef<null | any>(null)
+    const container = useRef<ElementRef<'section'>>(null)
     const [active, setActive] = useState<boolean>(false)
     useGSAP(
         () => {
@@ -34,8 +34,8 @@ export default function ScrollColorBG({ children, color, ...props }: Props) {
     )
 
     return (
-        <div className={classNames({ 'active-scroll': active })} ref={container} data-scroll-background-color={color}>
+        <section className={classNames({ 'active-scroll': active })} ref={container} data-scroll-background-color={color}>
             {children}
-        </div>
+        </section>
     )
 }

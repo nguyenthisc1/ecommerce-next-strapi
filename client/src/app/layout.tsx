@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Header from './assets/components/header/header'
+import './assets/fonts/fonts.css'
 import { LenisProvider } from './assets/provider/lenis-provider'
 import { ThemeProvider } from './assets/provider/theme-provider'
-import './assets/fonts/fonts.css'
 import './assets/styles/index.scss'
 
 export const metadata: Metadata = {
@@ -19,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         <Header />
                         <main>{children}</main>
                     </ThemeProvider>
+
                 </body>
             </LenisProvider>
         </html>
