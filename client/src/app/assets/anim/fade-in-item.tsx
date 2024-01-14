@@ -10,6 +10,7 @@ if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
 }
 
+
 export default function FadeInItem({ children }: { children: React.ReactNode }) {
     const el = useRef<ElementRef<'div'>>(null)
     const [active, setActive] = useState<boolean>(false)

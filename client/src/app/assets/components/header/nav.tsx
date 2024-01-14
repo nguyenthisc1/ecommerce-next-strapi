@@ -1,11 +1,10 @@
-import React from 'react'
-import Link from 'next/link'
 import classNames from 'classnames'
+import Link from 'next/link'
+import TransitionLink from '../transitionLink';
 
 const menu: { name: string; path: string }[] = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Product', path: '/product' },
+    { name: 'Product', path: '/products' },
 ]
 
 type Props = {
@@ -19,7 +18,7 @@ export default function Nav({ active }: Props) {
                 <ul className="nav-menu">
                     {menu.map((item) => (
                         <li key={item.name}>
-                            <Link href={item.path}>{item.name}</Link>
+                            <TransitionLink href={item.path}>{item.name}</TransitionLink>
                         </li>
                     ))}
                 </ul>

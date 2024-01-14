@@ -1,10 +1,10 @@
 'use client'
 
+import { useGSAP } from '@gsap/react'
+import classNames from 'classnames'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import React, { ElementRef, useRef, useState } from 'react'
-import { useGSAP } from '@gsap/react'
-import classNames from 'classnames'
 
 type Props = {
     children: React.ReactNode

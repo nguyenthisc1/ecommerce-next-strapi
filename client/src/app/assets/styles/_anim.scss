@@ -29,6 +29,10 @@
     .word {
         @apply inline-block overflow-hidden align-top;
     }
+
+    .char {
+        @apply inline-block;
+    }
 }
 
 .anim-hover-clip-image {

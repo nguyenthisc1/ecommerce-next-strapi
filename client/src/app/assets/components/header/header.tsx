@@ -4,20 +4,22 @@ import Image from 'next/image'
 import { useState } from 'react'
 import classNames from 'classnames'
 import Nav from './nav'
+import TransitionLink from '../transitionLink'
+import { activeStore } from '../../zustand/activeNav.store'
 export default function Header() {
-    const [useActiveNav, setUseActiveNav] = useState<boolean>(false)
+    const { active, toggleActive } = activeStore()
 
     return (
         <>
-            <header className={classNames('header', { active: useActiveNav })}>
+            <header className={classNames('header', { active: active })}>
                 <div className="wrapper">
                     <div className="logo">
-                        <a href="/">
+                        <TransitionLink href="/">
                             <Image className="object-contain" width={100} height={100} src="images/logo.svg" alt="logo" />
-                        </a>
+                        </TransitionLink>
                     </div>
 
-                    <div className={classNames('hamburger', { active: useActiveNav })} onClick={() => setUseActiveNav((state) => !state)}>
+                    <div className={classNames('hamburger', { active: active })} onClick={(state) => toggleActive(!active)}>
                         <div className="hamburger-wrapper magnetic-item">
                             <div className="hamburger-wrapper__line">
                                 <span></span>
@@ -28,7 +30,7 @@ export default function Header() {
                 </div>
             </header>
 
-            <Nav active={useActiveNav} />
+            <Nav active={active} />
         </>
     )
 }

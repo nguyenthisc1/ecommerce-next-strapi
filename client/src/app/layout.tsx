@@ -1,9 +1,14 @@
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { Metadata } from 'next'
 import Header from './assets/components/header/header'
 import './assets/fonts/fonts.css'
 import { LenisProvider } from './assets/provider/lenis-provider'
 import { ThemeProvider } from './assets/provider/theme-provider'
+
 import './assets/styles/index.scss'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export const metadata: Metadata = {
     title: 'E-commerce App',
@@ -19,7 +24,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         <Header />
                         <main>{children}</main>
                     </ThemeProvider>
-
                 </body>
             </LenisProvider>
         </html>
