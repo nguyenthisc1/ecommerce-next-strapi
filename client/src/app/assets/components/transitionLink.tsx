@@ -1,11 +1,13 @@
+'use client'
+
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { revealLoad } from '../anim/transition-page'
 import { activeStore } from '../zustand/activeNav.store'
 
-type Props = { href: string; children: React.ReactNode }
+type Props = { href: string; children: React.ReactNode; className?: string }
 
-export default function TransitionLink({ href, children }: Props) {
+export default function TransitionLink({ href, children, className }: Props) {
     const router = useRouter()
     const { toggleActive } = activeStore()
 
@@ -16,5 +18,9 @@ export default function TransitionLink({ href, children }: Props) {
         }, 1000)
     }
 
-    return <button onClick={handleClick}>{children}</button>
+    return (
+        <button onClick={handleClick} className={className}>
+            {children}
+        </button>
+    )
 }

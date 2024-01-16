@@ -50,7 +50,7 @@ export const revealLoad = (href: string, router: AppRouterInstance) => {
                 opacity: 0,
                 y: -60,
             },
-            1.65
+            2.65
         )
         .to(
             loading.querySelector('.loading-wrapper'),
@@ -60,7 +60,7 @@ export const revealLoad = (href: string, router: AppRouterInstance) => {
                 ease: Expo.easeInOut,
                 transformOrigin: 'top',
             },
-            2
+            3
         )
         .to(loading, {
             autoAlpha: 0,

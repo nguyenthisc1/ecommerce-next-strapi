@@ -736,48 +736,6 @@ export interface ApiHomeHome extends Schema.SingleType {
           localized: true;
         };
       }>;
-    hero_description: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    product_intro_title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    product_intro_description: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    product_list_title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    product_intro_description_2: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    hero_text_horizontal: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    cta: Attribute.Component<'components.cta'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -884,25 +842,18 @@ export interface ApiProductProduct extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String &
+    name: Attribute.String &
       Attribute.Required &
       Attribute.Unique &
       Attribute.DefaultTo<'Title'>;
     description: Attribute.Text;
-    quantity: Attribute.Integer &
-      Attribute.SetMinMax<{
-        min: 1;
-      }> &
-      Attribute.DefaultTo<1>;
     images: Attribute.Media;
     categories: Attribute.Relation<
       'api::product.product',
       'manyToMany',
       'api::category.category'
     >;
-    price: Attribute.BigInteger & Attribute.DefaultTo<'10000'>;
-    status: Attribute.Enumeration<['new', 'stocking', 'out of stock']> &
-      Attribute.DefaultTo<'new'>;
+    cursorImage: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
